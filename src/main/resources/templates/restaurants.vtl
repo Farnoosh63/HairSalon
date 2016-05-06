@@ -1,0 +1,21 @@
+<h1> List of all restaurants with $cuisine.getName() cuisine.</h1>
+<form action="/restaurants" method="post">
+  <input id="cuisineId" name="cuisineId" type="hidden" value="$cuisine.getId()">
+  <div class="form-group">
+    <label for="restaurant-name">Restaurant</label>
+    <input id="restaurant-name" name="restaurant-name" type="text" class="form-control" placeholder="Enter the name of your favorite restaurant" required>
+    </div>
+
+
+  <button type="submit" class="btn btn-success">Add Restaurant</button>
+</form>
+
+
+
+#foreach ($restaurant in $restaurants)
+<ul>
+<li><a href="/restaurants/$restaurant.getId()">$restaurant.getName()</a></li>
+</ul>
+
+#end
+<a href="/">Back to main page</a>

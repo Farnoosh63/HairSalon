@@ -1,0 +1,21 @@
+<h1>Fernanda, Farnoosh &amp; Tae Best Restaurants App</h1>
+
+<h3>Use this application to create your very own best restaurants list.</h3>
+<h3>Start by entering your favorite cuisine - type of food -  then add resturants to it.</h3>
+
+<form action="/cuisines" method="post">
+  <div class="form-group">
+    <label for="cuisine-name">Cuisine</label>
+    <input id="cuisine-name" name="cuisine-name" type="text" class="form-control" placeholder="Enter your type of food here" required>
+    </div>
+
+  <button type="submit" class="btn btn-success">Add Cuisine</button>
+</form>
+
+
+<p>Here is our cuisine list:</p>
+<ul>
+  #foreach($cuisine in $cuisines)
+  <li><a href="/cuisines/$cuisine.getId()">$cuisine.getName()</a></li>
+  #end
+</ul>
