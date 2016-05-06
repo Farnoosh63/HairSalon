@@ -35,15 +35,14 @@ public class StylistTest {
     assertTrue(Stylist.all().get(0).equals(myStylist));
   }
 
-  
-  //
-  // @Test
-  // public void Cuisine_saveAssigneIdToCuisineObj_int() {
-  //   Cuisine myCuisine = new Cuisine ("Italian");
-  //   myCuisine.save();
-  //   Cuisine savedCuisine = Cuisine.all().get(0);
-  //   assertEquals(savedCuisine.getId(), myCuisine.getId());
-  // }
+
+  @Test
+  public void Stylist_saveOneIdToEachStylist_int() {
+    Stylist myStylist = new Stylist ("Stylist_name1");
+    myStylist.save();
+    Stylist savedStylist = Stylist.all().get(0);
+    assertEquals(savedStylist.getId(), myStylist.getId());
+  }
   //
   //
   //
