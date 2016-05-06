@@ -28,15 +28,15 @@ public class AppTest extends FluentTest {
       assertThat(pageSource()).contains("Java Cut");
       assertThat(pageSource()).contains("Please type the Stylist name");
     }
-  //
-  // @Test
-  //   public void getCuisineReturnSamePage() {
-  //     Cuisine myCuisine = new Cuisine ("Italian");
-  //     myCuisine.save();
-  //     String cuisinePath = String.format("http://localhost:4567/cuisines/%d", myCuisine.getId());
-  //     goTo(cuisinePath);
-  //     assertThat(pageSource()).contains("Italian");
-  //   }
+
+  @Test
+    public void getClientsPage() {
+      Stylist myStylist = new Stylist ("Stylist Name 1");
+      myStylist.save();
+      String clientPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
+      goTo(clientPath);
+      assertThat(pageSource()).contains("Stylist Name 1");
+    }
   //
   // @Test
   //   public void getCuisineGetMultipleRestaurantsReturnAll() {
