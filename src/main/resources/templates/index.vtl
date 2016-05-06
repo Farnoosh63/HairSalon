@@ -32,11 +32,9 @@
     </div>
   </div>
 
-
   <div class="jumbotron">
     <img class="first-slide" src="http://beautynewsindia.com/wp-content/uploads/2015/10/BNI-strong-hair.jpg">
   </div>
-
 
   <div class="container">
     <h2>Java cut</h2>
@@ -50,27 +48,27 @@
         <button type="submit" class="btn btn-success">Add stylist</button>
       </div>
     </form>
-    
 
 
-<div class="form-inline">
-    #if($stylists)
-    <h3>Click on a stylist to see its Clients:</h3>
-    <ul>
-      #foreach($stylist in $stylists)
-      <li><a href="/stylists/$stylist.getId() ">$stylist.getName()</a></li>
 
+    <div class="form-inline">
+      #if($stylists)
+      <h3>Click on a stylist to see its Clients:</h3>
+      <ul>
+        #foreach($stylist in $stylists)
+        <li><a href="/stylists/$stylist.getId() ">$stylist.getName()</a></li>
+        #end
+      </ul>
       #end
-    </ul>
-    #end
-</div>
+    </div>
+  </div>
 
-    <footer class="footer">
-      <div class="container">
-        <p class="text-muted">Farnoosh Johnson Code Review3, Java class @
-          <a href="http://www.epicodus.com/">epicodus</a>
-        </p>
-      </div>
-    </footer>
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">Farnoosh Johnson Code Review3, Java class @
+        <a href="http://www.epicodus.com/">epicodus</a>
+      </p>
+    </div>
+  </footer>
 
-  </body>
+</body>
