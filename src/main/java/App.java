@@ -7,14 +7,14 @@ public class App {
   public static void main(String[] args) {
 
     ProcessBuilder process = new ProcessBuilder();
-       Integer port;
-       if (process.environment().get("PORT") != null) {
-           port = Integer.parseInt(process.environment().get("PORT"));
-       } else {
-           port = 4567;
-       }
+    Integer port;
+    if (process.environment().get("PORT") != null) {
+      port = Integer.parseInt(process.environment().get("PORT"));
+    } else {
+      port = 4567;
+    }
 
-      setPort(port);
+    setPort(port);
 
 
     staticFileLocation("/public");
@@ -54,19 +54,18 @@ public class App {
       newClient.save();
       model.put("stylist", stylist);
       String url = String.format("/stylists/%d", stylist.getId());
-        response.redirect(url);
-        return null;
-      });
+      response.redirect(url);
+      return null;
+    });
 
-      get("/stylists", (request, response) -> {
-        HashMap<String, Object> model = new HashMap<String, Object>();
-        model.put("stylists", Stylist.all());
-        
-
-        model.put("template", "templates/stylists.vtl");
-        return new ModelAndView(model, layout);
-      }, new VelocityTemplateEngine());
+    get("/stylists", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      model.put("stylists", Stylist.all());
 
 
+      model.put("template", "templates/stylists.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+    
   }
 }
