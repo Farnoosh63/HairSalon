@@ -2,16 +2,16 @@ import java.util.List;
 import org.sql2o.*;
 
 public class Stylist {
-  private String stylist_name;
+  private String name;
   private int id;
 
 
-  public Stylist(String stylist_name) {
-    this.stylist_name = stylist_name;
+  public Stylist(String name) {
+    this.name = name;
   }
 
   public String getName() {
-    return stylist_name;
+    return name;
   }
 
   public int getId() {
@@ -30,9 +30,9 @@ public class Stylist {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO stylists(stylist_name) VALUES (:stylist_name)";
+      String sql = "INSERT INTO stylists(name) VALUES (:name)";
       this.id = (int) con.createQuery(sql, true)
-      .addParameter("stylist_name", this.stylist_name)
+      .addParameter("name", this.name)
       .executeUpdate()
       .getKey();
     }
@@ -55,9 +55,9 @@ public class Stylist {
     }
   }
 
-  public List<Client> getClientss() {
+  public List<Client> getClients() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM clients where stylist_id=:id";
+      String sql = "SELECT * FROM clients where stylistId=:id";
       return con.createQuery(sql)
         .addParameter("id", this.id)
         .executeAndFetch(Client.class);

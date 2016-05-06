@@ -34,36 +34,34 @@
 
 
   <div class="jumbotron">
-    <img class="first-slide" src="http://beautynewsindia.com/wp-content/uploads/2015/10/BNI-strong-hair.jpg">
+    <img class="first-slide" src="http://fodrilla.hu/image/data/fodrilla.hu_15nov.jpg">
   </div>
 
 
   <div class="container">
     <h2>Java cut</h2>
     <p>Welcome to The Java Cut Hair Salon Portland, OR- A full service salon offering full database of haircuts, color, highlites, lowlites, corrective color &amp; color treatments with Java Techniques. We carry only professional hair products and sell several product lines. We also showcase local artists and support Java programmers in the community. Come take a tour of The Java Cut and see what makes us the Best Salon in between Java Programmers! We hope to see you soon..</p>
-    <form action="/stylists" method="post">
-      <div class="form-inline">
+
+    <form action="/clients" method="post">
+  <div class="form-inline">
+    <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
         <div class="form-group">
-          <label for="stylist-name">Please type the Stylist name</label>
-          <input id="stylist-name" name="stylist-name" type="text" class="form-control" placeholder="Enter your stylist name" required>
+          <label for="client-name">Client name for $stylist.getName()</label>
+          <input id="client-name" name="client-name" type="text" class="form-control">
         </div>
-        <button type="submit" class="btn btn-success">Add stylist</button>
       </div>
-    </form>
-    
-
-
-<div class="form-inline">
-    #if($stylists)
-    <h3>Click on a stylist to see its Clients:</h3>
-    <ul>
-      #foreach($stylist in $stylists)
-      <li><a href="/stylists/$stylist.getId() ">$stylist.getName()</a></li>
-
-      #end
-    </ul>
-    #end
+        <button type="submit" class="btn btn-success">Add client</button>
 </div>
+    </form>
+    #foreach ($client in $clients)
+    <ul>
+    <li>$client.getName()</a></li>
+    </ul>
+
+    #end
+
+    <a href="/stylists">View list of the Stylists</a>
+
 
     <footer class="footer">
       <div class="container">

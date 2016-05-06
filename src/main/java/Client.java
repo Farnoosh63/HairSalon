@@ -4,16 +4,16 @@ import org.sql2o.*;
 
 public class Client {
   private int id;
-  private String client_name;
-  private int stylist_id;
+  private String name;
+  private int stylistId;
 
-  public Client(String client_name, int stylist_id) {
-    this.client_name = client_name;
-    this.stylist_id = stylist_id;
+  public Client(String name, int stylistId) {
+    this.name = name;
+    this.stylistId = stylistId;
   }
 
   public String getName(){
-    return client_name;
+    return name;
   }
 
   public int getId() {
@@ -21,7 +21,7 @@ public class Client {
   }
 
   public int getStylistId() {
-    return stylist_id;
+    return stylistId;
   }
   @Override
   public boolean equals(Object anotherClient) {
@@ -35,7 +35,7 @@ public class Client {
     }
   }
   public static List <Client> all(){
-    String sql = "SELECT id, client_name, stylist_id FROM clients";
+    String sql = "SELECT id, name, stylistId FROM clients";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(Client.class);
     }
@@ -43,10 +43,10 @@ public class Client {
 
   public void save(){
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO clients (client_name, stylist_id) VALUES (:client_name, :stylist_id)";
+      String sql = "INSERT INTO clients (name, stylistId) VALUES (:name, :stylistId)";
       this.id = (int) con.createQuery(sql, true)
-      .addParameter("client_name", this.client_name)
-      .addParameter("stylist_id", this.stylist_id)
+      .addParameter("name", this.name)
+      .addParameter("stylistId", this.stylistId)
       .executeUpdate()
       .getKey();
     }
