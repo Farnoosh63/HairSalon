@@ -10,7 +10,8 @@
 
 ## __Description__
 
-###### This is simple custom-made Dictionary application that receive any word or phrase and let the user add unlimited definitions in a different page. The homepage of the app list out all of the words, and user can click on the button to view all of their definitions. This app does not have the ability to let user whether any word is duplicated or the user input is empty, since this only focus on below objectives to be met;
+###### This is simple custom-made Hair Salon application that receive the stylist name from the user, let the user add unlimited clients for each stylists in a different page. The homepage of the app list out all of the stylists, and user can click on each stylist name to view all of clients for the selected stylist. the input is required to be filled in order the submit button redirect to the next page.This app does not have the ability to let user whether any word is duplicated.
+######Below objective has been met in this App;
 1. Test have complete coverage for the behaviors that need to be tested
 2. tests are passing
 3. code has proper indentation and spacing
@@ -28,20 +29,22 @@
 Setup:
 
 This website is designed with bootstrap _version 3.3.6_ and including following files:
-* six different template files for index, layout and definition form and successful messages
+* four different template files for index, layout and clients form and stylists
 * one custom-made CSS files
-* two java testing file for back-end and integration test for front-end
+* two java testing file for back-end and one for integration test to test the front-end
 * two java files for the method two different classes
-* one ServerRule java file
+* one database connection java file
+* one ServerRule java and one DatabaseRule file
 * One App java file for Spark route
 * one velocityTemplateEngine
 * .ignore file
 * build gradle file
 * Procfile for deploying Spark apps to Heroku
+* one .sql file for database backup
 
 ###### Thanks
 
-**Accessing to the remote repository on account :** [farnoosh63](https://github.com/Farnoosh63/HairSalon)
+**Accessing to the remote repository on account :** [farnoosh63](https://github.com/Farnoosh63/HairSalon.git)
 
 **Accessing to github pages for this application :**
 > there is no github page created for this app

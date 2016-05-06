@@ -58,8 +58,8 @@ public class AppTest extends FluentTest {
     myStylist.save();
     String stylistPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
     goTo(stylistPath);
-    click("a", withText ("View list of the Stylists"));
+    click("a", withText ("Manage Stylist list"));
     assertThat(pageSource()).contains("Stylist Name 1");
   }
-  
+
 }
