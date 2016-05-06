@@ -45,7 +45,19 @@ public class Stylist {
     }
   }
 
-//
+  public static Stylist find (int id) {
+    try (Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM stylists WHERE id=:id";
+      Stylist stylist = con.createQuery(sql)
+        .addParameter("id", id)
+        .executeAndFetchFirst(Stylist.class);
+      return stylist;
+    }
+  }
+
+
+
+
 //   public static Cuisine find(int id) {
 //     try(Connection con = DB.sql2o.open()) {
 //       String sql = "SELECT * FROM cuisines WHERE id=:id";

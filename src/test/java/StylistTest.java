@@ -43,22 +43,22 @@ public class StylistTest {
     Stylist savedStylist = Stylist.all().get(0);
     assertEquals(savedStylist.getId(), myStylist.getId());
   }
-  //
-  //
-  //
-  // @Test
-  // public void Cuisine_getAllReturnAll_true() {
-  //   Cuisine myCuisine = new Cuisine ("Italian");
-  //   myCuisine.save();
-  //   assertTrue(Cuisine.all().contains(myCuisine));
-  // }
-  //
-  //
-  // @Test
-  // public void Cuisine_findCuisineInDataBase_true() {
-  //   Cuisine myCuisine = new Cuisine ("Italian");
-  //   myCuisine.save();
-  //   Cuisine savedCuisine =Cuisine.find(myCuisine.getId());
-  //   assertTrue(myCuisine.equals(savedCuisine));
-  // }
+
+
+  @Test
+  public void Stylist_getAllReturnAll_true() {
+    Stylist firstStylist = new Stylist ("Stylist_name1");
+    firstStylist.save();
+    Stylist secondStylist = new Stylist ("Stylist_name2");
+    secondStylist.save();
+    assertTrue(Stylist.all().contains(secondStylist));
+  }
+
+  @Test
+  public void Stylist_findStylistInDataBase_true() {
+    Stylist myStylist = new Stylist ("Stylist_name1");
+    myStylist.save();
+    Stylist savedStylist =Stylist.find(myStylist.getId());
+    assertTrue(myStylist.equals(savedStylist));
+  }
 }
