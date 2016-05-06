@@ -39,7 +39,7 @@ public class AppTest extends FluentTest {
     }
 
   @Test
-    public void getStylistsPage() {
+    public void getStylistsPageInsertClients() {
       Stylist myStylist = new Stylist ("Stylist Name 1");
       myStylist.save();
       Client firstClient = new Client ("Client Name 1", myStylist.getId());
@@ -51,5 +51,15 @@ public class AppTest extends FluentTest {
       assertThat(pageSource()).contains("Client Name 1");
       assertThat(pageSource()).contains("Client Name 2");
     }
+
+    @Test
+      public void getListOfStylistsPage() {
+        Stylist myStylist = new Stylist ("Stylist Name 1");
+        myStylist.save();
+        String stylistPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
+        goTo(stylistPath);
+        click("a", withText ("View list of the Stylists"));
+        assertThat(pageSource()).contains("Stylist Name 1");
+      }
 
 }
