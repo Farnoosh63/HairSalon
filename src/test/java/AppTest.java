@@ -42,14 +42,14 @@ public class AppTest extends FluentTest {
     public void getStylistsPage() {
       Stylist myStylist = new Stylist ("Stylist Name 1");
       myStylist.save();
-      Client firstClient = new Client ("SushiLand", myStylist.getId());
+      Client firstClient = new Client ("Client Name 1", myStylist.getId());
       firstClient.save();
-      Client secondClient = new Client ("SashimiLand", myStylist.getId());
+      Client secondClient = new Client ("Client Name 2", myStylist.getId());
       secondClient.save();
-      String cuisinePath = String.format("http://localhost:4567/cuisines/%d", myStylist.getId());
-      goTo(cuisinePath);
-      assertThat(pageSource()).contains("SushiLand");
-      assertThat(pageSource()).contains("SashimiLand");
+      String clientPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
+      goTo(clientPath);
+      assertThat(pageSource()).contains("Client Name 1");
+      assertThat(pageSource()).contains("Client Name 2");
     }
 
 }
