@@ -3,20 +3,20 @@ import org.sql2o.*;
 
 public class Stylist {
   private String stylist_name;
-//   private int id;
-//
-//
-  public Stylist(String name) {
+  private int id;
+
+
+  public Stylist(String stylist_name) {
     this.stylist_name = stylist_name;
   }
 
   public String getName() {
     return stylist_name;
   }
-//
-//   public int getId() {
-//     return id;
-//   }
+
+  public int getId() {
+    return id;
+  }
 //
 //   public static List<Cuisine> all(){
 //     String sql = "SELECT id, name FROM cuisines";
@@ -25,15 +25,15 @@ public class Stylist {
 //     }
 //   }
 //
-// @Override
-//   public boolean equals(Object otherCuisine) {
-//     if(!(otherCuisine instanceof Cuisine)) {
-//       return false;
-//     }else {
-//       Cuisine newCuisine = (Cuisine) otherCuisine;
-//       return this.getName().equals(newCuisine.getName());
-//     }
-//   }
+@Override
+  public boolean equals(Object otherStylist) {
+    if(!(otherStylist instanceof Stylist)) {
+      return false;
+    }else {
+      Stylist newStylist = (Stylist) otherStylist;
+      return this.getName().equals(newStylist.getName());
+    }
+  }
 //
 //   public void save() {
 //     try(Connection con = DB.sql2o.open()) {

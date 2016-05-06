@@ -14,19 +14,19 @@ public class StylistTest {
     assertEquals(true, newStylist instanceof Stylist);
   }
 
-  // @Test
-  // public void Cuisine_getNameReturnName_String() {
-  //   Cuisine myCuisine = new Cuisine ("Italian");
-  //   assertEquals("Italian", myCuisine.getName());
-  // }
-  //
-  // @Test
-  // public void Cuisine_getTwoSameCuisines_true() {
-  //   Cuisine firstCuisine = new Cuisine ("Italian");
-  //   Cuisine secondCuisine = new Cuisine ("Italian");
-  //   assertTrue(firstCuisine.equals(secondCuisine));
-  // }
-  //
+  @Test
+  public void Stylist_getStylistName_String() {
+    Stylist myStylist = new Stylist ("Stylist_name1");
+    assertEquals("Stylist_name1", myStylist.getName());
+  }
+
+  @Test
+  public void Stylist_getTwoSameName_true() {
+    Stylist firstStylist = new Stylist ("Stylist_name1");
+    Stylist secondStylist = new Stylist ("Stylist_name1");
+    assertTrue(firstStylist.equals(secondStylist));
+  }
+
   //
   // @Test
   // public void Cuisine_saveIfCuisinetheSame_true() {
