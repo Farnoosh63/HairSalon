@@ -17,14 +17,7 @@ public class Stylist {
   public int getId() {
     return id;
   }
-//
-//   public static List<Cuisine> all(){
-//     String sql = "SELECT id, name FROM cuisines";
-//     try(Connection con = DB.sql2o.open()) {
-//       return con.createQuery(sql).executeAndFetch(Cuisine.class);
-//     }
-//   }
-//
+
 @Override
   public boolean equals(Object otherStylist) {
     if(!(otherStylist instanceof Stylist)) {
@@ -34,16 +27,24 @@ public class Stylist {
       return this.getName().equals(newStylist.getName());
     }
   }
-//
-//   public void save() {
-//     try(Connection con = DB.sql2o.open()) {
-//       String sql = "INSERT INTO cuisines (name) VALUES (:name)";
-//       this.id = (int) con.createQuery(sql, true)
-//         .addParameter("name", this.name)
-//         .executeUpdate()
-//         .getKey();
-//     }
-//   }
+
+  public void save() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO stylists(stylist_name) VALUES (:stylist_name)";
+      this.id = (int) con.createQuery(sql, true)
+      .addParameter("stylist_name", this.stylist_name)
+      .executeUpdate()
+      .getKey();
+    }
+  }
+
+  public static List<Stylist> all() {
+    String sql = "SELECT * FROM stylists";
+    try (Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(Stylist.class);
+    }
+  }
+
 //
 //   public static Cuisine find(int id) {
 //     try(Connection con = DB.sql2o.open()) {

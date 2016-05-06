@@ -27,13 +27,15 @@ public class StylistTest {
     assertTrue(firstStylist.equals(secondStylist));
   }
 
-  //
-  // @Test
-  // public void Cuisine_saveIfCuisinetheSame_true() {
-  //   Cuisine myCuisine = new Cuisine ("Italian");
-  //   myCuisine.save();
-  //   assertTrue(Cuisine.all().get(0).equals(myCuisine));
-  // }
+
+  @Test
+  public void Stylist_saveStylistNametoList_true() {
+    Stylist myStylist = new Stylist ("Stylist_name1");
+    myStylist.save();
+    assertTrue(Stylist.all().get(0).equals(myStylist));
+  }
+
+  
   //
   // @Test
   // public void Cuisine_saveAssigneIdToCuisineObj_int() {
