@@ -49,8 +49,6 @@ This website is designed with bootstrap _version 3.3.6_ and including following 
 **Accessing to github pages for this application :**
 > there is no github page created for this app
 
-**Accessing to this application by Heroku :**
-> there is no github page created for this app
 
 **Installation:**
 >fork, download and run on gradle then visit http://localhost:4567/
