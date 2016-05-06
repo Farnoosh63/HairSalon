@@ -30,3 +30,7 @@ body {
  .jumbotron {
     background-color:transparent !important;
 }
+
+ul {
+ list-style: none;
+}
