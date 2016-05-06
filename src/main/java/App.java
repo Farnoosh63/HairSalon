@@ -20,21 +20,32 @@ public class App {
     staticFileLocation("/public");
     String layout = "templates/layout.vtl";
 
-    // get("/", (request, response) -> {
-    //   HashMap<String, Object> model = new HashMap<String, Object>();
-    //   model.put("cuisines", Cuisine.all());
-    //   model.put("template", "templates/index.vtl");
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
-    //
-    // post("/cuisines", (request, response) -> {
-    //   HashMap<String, Object> model = new HashMap<String, Object>();
-    //   String cuisineName = request.queryParams("cuisine-name");
-    //   Cuisine newCuisine = new Cuisine(cuisineName);
-    //   newCuisine.save();
-    //   response.redirect("/");
-    //   return null;
-    // });
+    get("/", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      model.put("stylists", Stylist.all());
+      model.put("template", "templates/index.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/stylists", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      String stylistName = request.queryParams("stylist-name");
+      Stylist newStylist = new Stylist(stylistName);
+      newStylist.save();
+      response.redirect("/");
+      return null;
+    });
+
+    post("/clients", (request,response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      Stylist stylist = Stylist.find(Integer.parseInt(request.queryParams("stylistId")));
+      String client-name = request.queryParams("client-name");
+      Client newClient = new Client(client-name, stylist.getId());
+      newClient.save();
+      model.put("stylist", stylist);
+      model.put("template", "templates/stylist-tasks-success.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
     //
     // get("/cuisines/:id", (request, response) -> {
     //   HashMap<String, Object> model = new HashMap<String, Object>();
@@ -44,7 +55,7 @@ public class App {
     //   model.put("template", "templates/restaurants.vtl");
     //   return new ModelAndView(model, layout);
     // }, new VelocityTemplateEngine());
-    //
+
     // post("/restaurants", (request, response) -> {
     //   HashMap<String, Object> model = new HashMap<String, Object>();
     //   String restaurantName = request.queryParams("restaurant-name"); //olive garden

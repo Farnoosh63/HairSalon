@@ -3,71 +3,63 @@ import java.util.List;
 import org.sql2o.*;
 
 public class Client {
-  // private int id;
-  // private String name;
-  // private int cuisine_id;
-  //
-  // public Restaurant(String name, int cuisine_id) {
-  //   this.name = name;
-  //   this.cuisine_id = cuisine_id;
-  // }
-  //
-  // public String getName(){
-  //   return name;
-  // }
-  //
-  // public int getId() {
-  //   return id;
-  // }
-  //
-  // public int getCuisineId() {
-  //   return cuisine_id;
-  // }
-  // @Override
-  // public boolean equals(Object anotherRestaurant) {
-  //   if(!(anotherRestaurant instanceof Restaurant)){
-  //     return false;
-  //   }else {
-  //     Restaurant newRestaurant = (Restaurant) anotherRestaurant;
-  //     return this.getName().equals(newRestaurant.getName()) &&
-  //       this.getId() == newRestaurant.getId() &&
-  //       this.getCuisineId() == newRestaurant.getCuisineId();
-  //   }
-  // }
-  // public static List <Restaurant> all(){
-  //   String sql = "SELECT id, name, cuisine_id FROM restaurants";
-  //   try(Connection con = DB.sql2o.open()) {
-  //     return con.createQuery(sql).executeAndFetch(Restaurant.class);
-  //   }
-  // }
-  //
-  // public void save(){
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "INSERT INTO restaurants (name, cuisine_id) VALUES (:name, :cuisine_id)";
-  //     this.id = (int) con.createQuery(sql, true)
-  //     .addParameter("name", this.name)
-  //     .addParameter("cuisine_id", this.cuisine_id)
-  //     .executeUpdate()
-  //     .getKey();
-  //   }
-  // }
-  //
-  // public static Restaurant find (int id){
-  //   try(Connection con = DB.sql2o.open()) {
-  //   String sql = "SELECT * FROM restaurants WHERE id=:id";
-  //   Restaurant restaurant = con.createQuery(sql)
-  //     .addParameter("id", id)
-  //     .executeAndFetchFirst(Restaurant.class);
-  //      return restaurant;
-  //   }
-  // }
-  //
-  // public List<Review> getReviews() {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "SELECT * FROM reviews where restaurant_id=:id";
-  //     return con.createQuery(sql)
-  //       .addParameter("id", this.id)
-  //       .executeAndFetch(Review.class);
-  //   }
-  // }
+  private int id;
+  private String client_name;
+  private int stylist_id;
+
+  public Client(String client_name, int stylist_id) {
+    this.client_name = client_name;
+    this.stylist_id = stylist_id;
+  }
+
+  public String getName(){
+    return client_name;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public int getStylistId() {
+    return stylist_id;
+  }
+  @Override
+  public boolean equals(Object anotherClient) {
+    if(!(anotherClient instanceof Client)){
+      return false;
+    }else {
+      Client newClient = (Client) anotherClient;
+      return this.getName().equals(newClient.getName()) &&
+        this.getId() == newClient.getId() &&
+        this.getStylistId() == newClient.getStylistId();
+    }
+  }
+  public static List <Client> all(){
+    String sql = "SELECT id, client_name, stylist_id FROM clients";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(Client.class);
+    }
+  }
+
+  public void save(){
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO clients (client_name, stylist_id) VALUES (:client_name, :stylist_id)";
+      this.id = (int) con.createQuery(sql, true)
+      .addParameter("client_name", this.client_name)
+      .addParameter("stylist_id", this.stylist_id)
+      .executeUpdate()
+      .getKey();
+    }
+  }
+
+  public static Client find (int id){
+    try(Connection con = DB.sql2o.open()) {
+    String sql = "SELECT * FROM clients WHERE id=:id";
+    Client client = con.createQuery(sql)
+      .addParameter("id", id)
+      .executeAndFetchFirst(Client.class);
+       return client;
+    }
+  }
+
 }

@@ -1,7 +1,6 @@
 import org.sql2o.*;
 import org.junit.*;
 import static org.junit.Assert.*;
-// import java.util.Arrays;
 
 public class StylistTest {
 
@@ -27,14 +26,12 @@ public class StylistTest {
     assertTrue(firstStylist.equals(secondStylist));
   }
 
-
   @Test
   public void Stylist_saveStylistNametoList_true() {
     Stylist myStylist = new Stylist ("Stylist_name1");
     myStylist.save();
     assertTrue(Stylist.all().get(0).equals(myStylist));
   }
-
 
   @Test
   public void Stylist_saveOneIdToEachStylist_int() {
@@ -43,7 +40,6 @@ public class StylistTest {
     Stylist savedStylist = Stylist.all().get(0);
     assertEquals(savedStylist.getId(), myStylist.getId());
   }
-
 
   @Test
   public void Stylist_getAllReturnAll_true() {

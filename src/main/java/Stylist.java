@@ -55,27 +55,14 @@ public class Stylist {
     }
   }
 
-
-
-
-//   public static Cuisine find(int id) {
-//     try(Connection con = DB.sql2o.open()) {
-//       String sql = "SELECT * FROM cuisines WHERE id=:id";
-//       Cuisine cuisine = con.createQuery(sql)
-//         .addParameter("id", id)
-//         .executeAndFetchFirst(Cuisine.class);
-//       return cuisine;
-//     }
-//   }
-//
-//   public List<Restaurant> getRestaurants() {
-//     try(Connection con = DB.sql2o.open()) {
-//       String sql = "SELECT * FROM restaurants where cuisine_id=:id";
-//       return con.createQuery(sql)
-//         .addParameter("id", this.id)
-//         .executeAndFetch(Restaurant.class);
-//     }
-//   }
+  public List<Client> getClientss() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM clients where stylist_id=:id";
+      return con.createQuery(sql)
+        .addParameter("id", this.id)
+        .executeAndFetch(Client.class);
+    }
+  }
 
 
 
