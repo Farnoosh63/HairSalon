@@ -8,52 +8,52 @@ public class ClientTest {
   @Rule
   public DatabaseRule database = new DatabaseRule();
 
-  // @Test
-  // public void restaurant_instantiatesCorrectly_true() {
-  //   Restaurant myRestaurant = new Restaurant("Olive Garden", 1);
-  //   assertTrue(myRestaurant instanceof Restaurant);
-  // }
-  // @Test
-  // public void restaurant_instantiatesWithName_String() {
-  //   Restaurant myRestaurant = new Restaurant("Olive Garden", 1);
-  //   assertEquals("Olive Garden", myRestaurant.getName());
-  // }
-  // @Test
-  // public void restaurant_getMultiplySameRestaurantName_true() {
-  //   Restaurant firstRestaurant = new Restaurant("Olive Garden", 1);
-  //   Restaurant secondRestaurant = new Restaurant("Olive Garden", 1);
-  //   assertTrue(firstRestaurant.equals(secondRestaurant));
-  // }
-  //
-  // @Test
-  // public void restaurant_getRestaurantandSaveIt_true() {
-  //   Restaurant myRestaurant = new Restaurant("Olive Garden", 1);
-  //   myRestaurant.save();
-  //   assertTrue(Restaurant.all().get(0).equals(myRestaurant));
-  // }
-  // @Test
-  // public void restaurant_getRestaurantId_int() {
-  //   Restaurant myRestaurant = new Restaurant("Olive Garden", 1);
-  //   myRestaurant.save();
-  //   Restaurant savedRestaurant = Restaurant.all().get(0);
-  //   assertEquals(myRestaurant.getId(), savedRestaurant.getId());
-  // }
-  //
-  // @Test
-  // public void find_findRestaurantInDatabase_true() {
-  //   Restaurant myRestaurant = new Restaurant("Olive Garden", 1);
-  //   myRestaurant.save();
-  //   Restaurant savedRestaurant = Restaurant.find(myRestaurant.getId());
-  //   assertTrue(myRestaurant.equals(savedRestaurant));
-  // }
-  //
-  // @Test
-  // public void save_saveCuisineIdIntoDB_true() {
-  //   Cuisine myCuisine = new Cuisine ("Italian");
-  //   myCuisine.save();
-  //   Restaurant myRestaurant = new Restaurant ("Olive Garden", myCuisine.getId());
-  //   myRestaurant.save();
-  //   Restaurant savedRestaurant = Restaurant.find(myRestaurant.getId());
-  //   assertEquals(savedRestaurant.getCuisineId(), myCuisine.getId());
-  // }
+  @Test
+  public void client_OwnerAddClient_true() {
+    Client myClient = new Client("Client Name 1", 1);
+    assertTrue(myClient instanceof Client);
+  }
+  @Test
+  public void client_getClientName_String() {
+    Client myClient = new Client("Client Name 1", 1);
+    assertEquals("Client Name 1", myClient.getName());
+  }
+  @Test
+  public void client_getTwoSameName_true(){
+    Client firstClient = new Client("Client Name 1", 1);
+    Client secondClient = new Client("Client Name 1", 1);
+    assertTrue(firstClient.equals(secondClient));
+  }
+
+  @Test
+  public void client_saveClientNametoList_true() {
+    Client myClient = new Client("Client Name 1", 1);
+    myClient.save();
+    assertTrue(Client.all().get(0).equals(myClient));
+  }
+  @Test
+  public void client_getClientId_int() {
+    Client myClient = new Client("Client Name 1", 1);
+    myClient.save();
+    Client savedClient = Client.all().get(0);
+    assertEquals(myClient.getId(), savedClient.getId());
+  }
+
+  @Test
+  public void find_findClientInDatabase_true() {
+    Client myClient = new Client("Client Name 1", 1);
+    myClient.save();
+    Client savedClient = Client.find(myClient.getId());
+    assertTrue(myClient.equals(savedClient));
+  }
+
+  @Test
+  public void save_saveStylistIdIntoDB_true() {
+    Stylist myStylist = new Stylist ("Stylist Name 1");
+    myStylist.save();
+    Client myClient = new Client ("Client Name 1", myStylist.getId());
+    myClient.save();
+    Client savedClient = Client.find(myClient.getId());
+    assertEquals(savedClient.getStylistId(), myStylist.getId());
+  }
 }

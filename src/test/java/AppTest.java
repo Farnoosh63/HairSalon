@@ -23,43 +23,43 @@ public class AppTest extends FluentTest {
   public static ServerRule server = new ServerRule();
 
   @Test
-    public void rootTest() {
-      goTo("http://localhost:4567/");
-      assertThat(pageSource()).contains("Java Cut");
-      assertThat(pageSource()).contains("Please type the Stylist name");
-    }
+  public void rootTest() {
+    goTo("http://localhost:4567/");
+    assertThat(pageSource()).contains("Java Cut");
+    assertThat(pageSource()).contains("Please type the Stylist name");
+  }
 
   @Test
-    public void getClientsPage() {
-      Stylist myStylist = new Stylist ("Stylist Name 1");
-      myStylist.save();
-      String clientPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
-      goTo(clientPath);
-      assertThat(pageSource()).contains("Stylist Name 1");
-    }
+  public void getClientsPage() {
+    Stylist myStylist = new Stylist ("Stylist Name 1");
+    myStylist.save();
+    String clientPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
+    goTo(clientPath);
+    assertThat(pageSource()).contains("Stylist Name 1");
+  }
 
   @Test
-    public void getStylistsPageInsertClients() {
-      Stylist myStylist = new Stylist ("Stylist Name 1");
-      myStylist.save();
-      Client firstClient = new Client ("Client Name 1", myStylist.getId());
-      firstClient.save();
-      Client secondClient = new Client ("Client Name 2", myStylist.getId());
-      secondClient.save();
-      String clientPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
-      goTo(clientPath);
-      assertThat(pageSource()).contains("Client Name 1");
-      assertThat(pageSource()).contains("Client Name 2");
-    }
+  public void getStylistsPageInsertClients() {
+    Stylist myStylist = new Stylist ("Stylist Name 1");
+    myStylist.save();
+    Client firstClient = new Client ("Client Name 1", myStylist.getId());
+    firstClient.save();
+    Client secondClient = new Client ("Client Name 2", myStylist.getId());
+    secondClient.save();
+    String clientPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
+    goTo(clientPath);
+    assertThat(pageSource()).contains("Client Name 1");
+    assertThat(pageSource()).contains("Client Name 2");
+  }
 
-    @Test
-      public void getListOfStylistsPage() {
-        Stylist myStylist = new Stylist ("Stylist Name 1");
-        myStylist.save();
-        String stylistPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
-        goTo(stylistPath);
-        click("a", withText ("View list of the Stylists"));
-        assertThat(pageSource()).contains("Stylist Name 1");
-      }
-
+  @Test
+  public void getListOfStylistsPage() {
+    Stylist myStylist = new Stylist ("Stylist Name 1");
+    myStylist.save();
+    String stylistPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
+    goTo(stylistPath);
+    click("a", withText ("View list of the Stylists"));
+    assertThat(pageSource()).contains("Stylist Name 1");
+  }
+  
 }
