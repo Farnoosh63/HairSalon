@@ -3,7 +3,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 // import java.time.LocalDateTime;
 
-public class RestaurantTest {
+public class ClientTest {
 
   @Rule
   public DatabaseRule database = new DatabaseRule();

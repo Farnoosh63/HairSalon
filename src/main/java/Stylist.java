@@ -7,12 +7,12 @@ public class Stylist {
 //
 //
   public Stylist(String name) {
-    this.name = stylist_name;
+    this.stylist_name = stylist_name;
   }
-//
-//   public String getName() {
-//     return name;
-//   }
+
+  public String getName() {
+    return stylist_name;
+  }
 //
 //   public int getId() {
 //     return id;
