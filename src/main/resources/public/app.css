@@ -21,16 +21,16 @@ body {
   display: block;
   margin-bottom: 60px;
   line-height: 200%;
-  }
- img {
-   display: block;
-   margin-left: auto;
-   margin-right: auto;
- }
- .jumbotron {
-    background-color:transparent !important;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.jumbotron {
+  background-color:transparent !important;
 }
 
 ul {
- list-style: none;
+  list-style: none;
 }

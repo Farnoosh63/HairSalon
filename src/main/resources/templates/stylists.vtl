@@ -45,11 +45,14 @@
       <ul>
         #foreach($stylist in $stylists)
         <li><a href="/stylists/$stylist.getId() ">$stylist.getName()</a></li>
+        <form action="/stylists/$stylist.getId()/delete" method="post">
+          <button type="submit" class="btn btn-link">Delete Stylist</button>
+        </form>
         #end
       </ul>
       #end
     </div>
-    <a href="/" class="button button1">Add more stylist</a>
+    <button><a href="/" class="button button1">Add more stylist</a></button>
   </div>
   <footer class="footer">
     <div class="container">

@@ -43,7 +43,7 @@
       <div class="form-inline">
         <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
         <div class="form-group">
-          <label for="client-name">Client name for $stylist.getName()</label>
+          <label for="client-name">$stylist.getName()'s Client'</label>
           <input id="client-name" name="client-name" type="text" class="form-control">
         </div>
       </div>
@@ -51,14 +51,14 @@
     </div>
   </form>
   <div class="form-inline">
-    <p> list of $stylist.getName() Clients: </p>
+    <p><Strong> list of $stylist.getName() Clients: </strong></p>
     #foreach ($client in $clients)
     <ul>
       <li>$client.getName()</a></li>
     </ul>
     #end
 
-    <a href="/stylists">View list of the Stylists</a>
+    <button><a href="/stylists" class="btn btn-warning">View list of the Stylists</a></button>
   </div>
   <footer class="footer">
     <div class="container">
