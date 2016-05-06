@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.fluentlenium.core.filter.FilterConstructor.*;
-import org.sql2o.*; 
+import org.sql2o.*;
 import org.junit.*;
 
 public class AppTest extends FluentTest {
@@ -22,13 +22,12 @@ public class AppTest extends FluentTest {
   @ClassRule
   public static ServerRule server = new ServerRule();
 
-  // @Test
-  //   public void rootTest() {
-  //     goTo("http://localhost:4567/");
-  //     assertThat(pageSource()).contains("Best Restaurants App");
-  //     assertThat(pageSource()).contains("Cuisine");
-  //     assertThat(pageSource()).contains("favorite cuisine");
-  //   }
+  @Test
+    public void rootTest() {
+      goTo("http://localhost:4567/");
+      assertThat(pageSource()).contains("Java Cut");
+      assertThat(pageSource()).contains("Please type the Stylist name");
+    }
   //
   // @Test
   //   public void getCuisineReturnSamePage() {
