@@ -50,21 +50,21 @@
       <button type="submit" class="btn btn-success">Add client</button>
     </div>
   </form>
+  <div class="form-inline">
+    <p> list of $stylist.getName() Clients: </p>
+    #foreach ($client in $clients)
+    <ul>
+      <li>$client.getName()</a></li>
+    </ul>
+    #end
 
-  #foreach ($client in $clients)
-  <ul>
-    <li>$client.getName()</a></li>
-  </ul>
-
-  #end
-
-  <a href="/stylists">View list of the Stylists</a>
-
+    <a href="/stylists">View list of the Stylists</a>
+  </div>
   <footer class="footer">
     <div class="container">
       <p class="text-muted">Farnoosh Johnson Code Review3, Java class @
         <a href="http://www.epicodus.com/">epicodus</a>
       </p>
     </div>
-  </footer>  
+  </footer>
 </body>

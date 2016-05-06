@@ -37,19 +37,19 @@ public class AppTest extends FluentTest {
       goTo(clientPath);
       assertThat(pageSource()).contains("Stylist Name 1");
     }
-  //
-  // @Test
-  //   public void getCuisineGetMultipleRestaurantsReturnAll() {
-  //     Cuisine myCuisine = new Cuisine ("Japanese");
-  //     myCuisine.save();
-  //     Restaurant firstRestaurant = new Restaurant ("SushiLand", myCuisine.getId());
-  //     firstRestaurant.save();
-  //     Restaurant secondRestaurant = new Restaurant ("SashimiLand", myCuisine.getId());
-  //     secondRestaurant.save();
-  //     String cuisinePath = String.format("http://localhost:4567/cuisines/%d", myCuisine.getId());
-  //     goTo(cuisinePath);
-  //     assertThat(pageSource()).contains("SushiLand");
-  //     assertThat(pageSource()).contains("SashimiLand");
-  //   }
+
+  @Test
+    public void getStylistsPage() {
+      Stylist myStylist = new Stylist ("Stylist Name 1");
+      myStylist.save();
+      Client firstClient = new Client ("SushiLand", myStylist.getId());
+      firstClient.save();
+      Client secondClient = new Client ("SashimiLand", myStylist.getId());
+      secondClient.save();
+      String cuisinePath = String.format("http://localhost:4567/cuisines/%d", myStylist.getId());
+      goTo(cuisinePath);
+      assertThat(pageSource()).contains("SushiLand");
+      assertThat(pageSource()).contains("SashimiLand");
+    }
 
 }
