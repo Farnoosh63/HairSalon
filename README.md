@@ -56,7 +56,7 @@ This website is designed with bootstrap _version 3.3.6_ and including following 
 * CREATE DATABASE hair_salon;
 * connect to database
 * CREATE TABLE stylists (id serial PRIMARY KEY, name varchar);
-* CREATE TABLE clients (id serial PRIMARY KEY, name varchar);
+* CREATE TABLE clients (id serial PRIMARY KEY, name varchar, stylistid int);
 
 ### Legal
 
