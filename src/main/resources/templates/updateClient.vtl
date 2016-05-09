@@ -28,39 +28,30 @@
           </div>
         </div>
       </nav>
+
     </div>
   </div>
 
   <div class="jumbotron">
-    <img class="first-slide" src="http://fodrilla.hu/image/data/fodrilla.hu_15nov.jpg">
+    <img class="first-slide" src="http://www.hairtransplantdelhi.org/wp-content/uploads/2016/03/Hair-Loss-Treatment1.jpg">
   </div>
 
   <div class="container">
     <h2>Java Cut and Spa</h2>
-    <p>Java cut and Spa was rated by Vogue Magazine as one of the Top 100 Salons in the nation!</p>
-    <p>We are recognized for our passion, and our commitment to sense and style. Like Portland, we’re friendly, have our unique charm, and cater to each individual clients where they are at.Please add the client name so we can track of each stylist easier.</p>
+    <p>Java Cut and Spa is proud that has a very secure database to keep us stay connected with all out clients with their updated information.</p>
 
-    <form action="/clients" method="post">
-      <div class="form-inline">
-        <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
-        <div class="form-group">
-          <label for="client-name">$stylist.getName()'s Client'</label>
-          <input id="client-name" name="client-name" type="text" class="form-control">
-        </div>
+
+    <h1> update client : $client.getName() here </h1>
+    <form action="/clients/$client.getId()" method="post">
+      <div class="form-group">
+        <label for="name">newName</label>
+        <input id="name" name="name" type="text" class="form-control">
       </div>
-      <button type="submit" class="btn btn-success">Add client</button>
-    </div>
-  </form>
-  <div class="form-inline">
-    <p><Strong> list of $stylist.getName() Clients: </strong></p>
-    #foreach ($client in $clients)
-    <ul>
-      <li>$client.getName()</a></li>
-      <a href="/clients/$client.getId()" class="btn btn-link">Update Client Name</a>
-    </ul>
-    #end
 
-    <a type="button" href="/stylists" class="btn btn-warning">Manage Stylist list</a>
+      <button type="submit" class="btn btn-success">Update name</button>
+    </form>
+
+    <a type="button" href="/" class="btn btn-warning">Add more stylist</a>
   </div>
   <footer class="footer">
     <div class="container">
@@ -69,4 +60,5 @@
       </p>
     </div>
   </footer>
+
 </body>
