@@ -25,6 +25,11 @@
 11. Spark routes process GET and POST requests/responses successfully
 12. Correct set up of a one-to-many relationship in a database
 13. README file include the details of your database names and tables
+
+####Screenshots of some pages of the app:
+<img id="screen-1" src="https://s26.postimg.org/t8m2nr54p/Screen_Shot_2016_08_02_at_11_00_13_AM.png" width="200px" title="main page" />
+<img id="screen-1" src="https://s26.postimg.org/fsz1yawmx/Screen+Shot 2016-08-02 at 11.01.45 AM.png" width="200px" title="add customer" />
+<img id="screen-1" src="https://s26.postimg.org/93siiabax/Screen_Shot_2016_08_02_at_11_02_34_AM.png" width="200px" title="Manage stylist" />
 > You may use this application as an example to show the proficiency of a level 2 student in Epicodus.
 Setup:
 
