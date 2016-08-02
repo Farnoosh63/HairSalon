@@ -51,7 +51,7 @@ This website is designed with bootstrap _version 3.3.6_ and including following 
 
 
 **Installation:**
->fork, download and run on gradle then visit http://localhost:4567/
+>fork, download(gradle build) and run on gradle then visit http://localhost:4567/
 >In PSQL:
 * CREATE DATABASE hair_salon;
 * connect to database
