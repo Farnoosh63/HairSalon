@@ -58,6 +58,60 @@ This website is designed with bootstrap _version 3.3.6_ and including following 
 * CREATE TABLE stylists (id serial PRIMARY KEY, name varchar);
 * CREATE TABLE clients (id serial PRIMARY KEY, name varchar, stylistid int);
 
+
+**common SQL commands:**
+* CREATE DATABASE database_name; # From the $USER database.
+* CREATE TABLE table_name (id serial PRIMARY KEY, some_column varchar, another_column int, yet_another_column timestamp);
+* ALTER TABLE table_name ADD column_name boolean;
+* ALTER TABLE table_name DROP column_name;
+* INSERT INTO contacts (name, age, birthday) VALUES ('Wes', 43, '1969-05-01') RETURNING id;
+* SELECT * FROM table_name WHERE age >= 18;
+* SELECT * FROM contacts WHERE NOT age >= 18;
+* UPDATE contacts SET name = 'Wes Anderson' WHERE id = 1;
+* DELETE FROM contacts WHERE id = 1;
+* DROP TABLE table_name; # From the database that holds the table.
+* DROP DATABASE test_database; # From the $USER database.
+
+```
+Restoring Databases
+Restoring databases from an .sql file takes a few more steps - we must manually create the database we want to add our tables to before we can add them.
+
+Connect to psql and run:
+
+# CREATE DATABASE media;
+Now we can restore your media.sql including our films table in our terminal:
+
+$ psql media < media.sql
+We should see something like this:
+
+COPY 0
+ setval 
+--------
+     17
+(1 row)
+
+COPY 3
+ setval 
+--------
+     38
+(1 row)
+
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+REVOKE
+REVOKE
+GRANT
+GRANT
+If we switch to psql and run:
+
+# \c media
+and then:
+
+\dt 
+We will see all of our tables in the media database.
+```
+
 ### Legal
 
 _*Copyright (c) 2016 Farnoosh Johnson- Student in Epicodus*_
